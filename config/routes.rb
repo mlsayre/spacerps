@@ -1,5 +1,18 @@
 Spacerps::Application.routes.draw do
+  get "pages/welcome"
+  get "pages/help"
+  get "pages/play"
+  get "pages/hiscores"
+
   resources :users
+  resources :pages
+  resources :sessions, only: [:new, :create, :destroy]
+ 
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  root 'pages#welcome'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

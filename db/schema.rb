@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906222432) do
+ActiveRecord::Schema.define(version: 20130912193559) do
+
+  create_table "enemies", force: true do |t|
+    t.string   "race"
+    t.string   "enshipname"
+    t.integer  "hullpoints"
+    t.integer  "shieldpoints"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
+    t.text     "shipname"
+    t.decimal  "scissors"
+    t.decimal  "papers"
+    t.decimal  "rocks"
+    t.string   "remember_token"
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

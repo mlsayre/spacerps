@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  race: MyString
+  enshipname: MyString
+  hullpoints: 1
+  shieldpoints: 1
+
+two:
+  race: MyString
+  enshipname: MyString
+  hullpoints: 1
+  shieldpoints: 1

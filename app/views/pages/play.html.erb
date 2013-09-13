@@ -1,0 +1,49 @@
+<%= javascript_include_tag "mainplay" %>
+<script type="text/javascript">
+  var rocktallylife = "<%= current_user.rocks %>";
+</script>
+
+<h1>Pages#play</h1>
+<p>KILL THE BADDIES</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= current_user.name %>
+</p>
+
+<p>
+  <strong>Ship Name:</strong>
+  <%= current_user.shipname %>
+</p>
+
+<p>
+  <strong>Battle Rock Missiles Played:</strong>
+  <div id="RockTallyFight"></div>
+</p>
+
+<p>
+  <strong>Battle Plasmatic Papers Played:</strong>
+  <div id="PaperTallyFight"></div>
+</p>
+
+<p>
+  <strong>Battle Scissor Slicer Beams Played:</strong>
+  <div id="ScissorsTallyFight"></div>
+</p>
+
+
+<p>
+  <strong>Enemy Race:</strong>
+  <%= current_enemy.race %>
+</p>
+
+<p>
+  <strong>Enemy Hullpoints:</strong>
+  <%= current_enemy.hullpoints - 12 %>
+</p>
+
+<button id="PlayRock" onclick="PlayRock()">Fire Rock Missile</button>
+<button id="PlayPaper" onclick="PlayPaper()">Fire Plasmatic Paper</button>
+<button id="PlayScissors" onclick="PlayScissors()">Fire Scissor Slicer</button>
+
+<div id="MessageText"></div>
