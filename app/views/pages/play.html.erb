@@ -1,7 +1,10 @@
 <%= javascript_include_tag "mainplay" %>
 <script type="text/javascript">
-  var rocktallylife = "<%= current_user.rocks %>";
+  var enshieldpoints = "<%= current_enemy.shieldpoints %>";
+  var enhullpoints = "<%= current_enemy.hullpoints %>";
+  BeginFight();
 </script>
+<body onload="BeginFight()">
 
 <h1>Pages#play</h1>
 <p>KILL THE BADDIES</p>
@@ -38,12 +41,37 @@
 </p>
 
 <p>
+  <strong>Enemy Ship Name:</strong>
+  <%= current_enemy.enshipname %>
+</p>
+
+<p>
   <strong>Enemy Hullpoints:</strong>
-  <%= current_enemy.hullpoints - 12 %>
+  <%= current_enemy.hullpoints %>
 </p>
 
 <button id="PlayRock" onclick="PlayRock()">Fire Rock Missile</button>
 <button id="PlayPaper" onclick="PlayPaper()">Fire Plasmatic Paper</button>
 <button id="PlayScissors" onclick="PlayScissors()">Fire Scissor Slicer</button>
 
-<div id="MessageText"></div>
+<p>
+  <strong>Results:</strong>
+  <div id="PlayerMoveShow"></div>
+  <div id="EnemyMoveShow"></div>
+  <div id="AttackResultShow"></div>
+</p>
+
+<table border="1">
+<tr>
+<td>Player Hull Points</td>
+<td>Player Shield Points</td>
+<td>Enemy Hull Points</td>
+<td>Enemy Shield Points</td>
+</tr>
+<tr>
+<td><div id="playerhpshow"></div></td>
+<td><div id="playerspshow"></div></td>
+<td><div id="enemyhpshow"></div></td>
+<td><div id="enemyspshow"></div></td>
+</tr>
+</table>
