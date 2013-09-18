@@ -4,35 +4,23 @@
   var enhullpoints = "<%= current_enemy.hullpoints %>";
   BeginFight();
 </script>
+
+<!-- preloading images so they don't flicker -->
+<script type="text/javascript">
+if (document.images) {
+    img1 = new Image();
+    img1.src = "PlayerShipFullDamage.png";
+    img2 = new Image();
+    img2.src = "PlayerShipMinorDamage.png";
+    img3 = new Image();
+    img3.src = "EnemyShipFullDamage.png";
+    img4 = new Image();
+    img4.src = "EnemyShipMinorDamage.png";
+}
+</script>
 <body onload="BeginFight()">
 
 <h1>Pages#play</h1>
-<p>KILL THE BADDIES</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= current_user.name %>
-</p>
-
-<p>
-  <strong>Ship Name:</strong>
-  <%= current_user.shipname %>
-</p>
-
-<p>
-  <strong>Battle Rock Missiles Played:</strong>
-  <div id="RockTallyFight"></div>
-</p>
-
-<p>
-  <strong>Battle Plasmatic Papers Played:</strong>
-  <div id="PaperTallyFight"></div>
-</p>
-
-<p>
-  <strong>Battle Scissor Slicer Beams Played:</strong>
-  <div id="ScissorsTallyFight"></div>
-</p>
 
 
 <p>
@@ -61,6 +49,18 @@
   <div id="AttackResultShow"></div>
 </p>
 
+<center>
+<table border="0">
+<tr>
+<td><center>Captain <%= current_user.name %> - GSS <%= current_user.shipname %></center></td>
+<td><center><%= current_enemy.enshipname %></center></td>
+</tr>
+<tr>
+<td style="width:320px; height:240px; background-image:url(/assets/PlayerShip.png)"><div id="playershipimg"></div></td>
+<td style="width:320px; height:240px; background-image:url(/assets/EnemyShip.png)"><div id="enemyshipimg"></div></td>
+</tr>
+</table>
+
 <table border="1">
 <tr>
 <td>Player Hull Points</td>
@@ -75,3 +75,6 @@
 <td><div id="enemyspshow"></div></td>
 </tr>
 </table>
+<div id="fightresultshow"></div>
+<div id="fighttallyresultshow"></div>
+</center>
